@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gentle Skin Aesthetics</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <img src="https://i.ibb.co/Mkc07NQ1/Untitled-design-1.png" alt="Gentle Skin Logo" class="logo" />
+    <h1>Gentle Skin Aesthetics</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="booking.html">Book Now</a>
+    </nav>
+</header>
+
+
+    <main>
+        <section id="home" class="section-content">
+            <div class="glass-box">
+                <h2>Welcome to Gentle Skin Aesthetics</h2>
+                <p>Your journey to glowing, healthy skin begins here. Book your appointment with care, and comfort.</p>
+            </div>
+        </section>
+
+        <section id="about" class="section-content">
+            <div class="glass-box">
+                <h2>Our Story</h2>
+                <p>
+                    At Gentle Skin Aesthetics, we believe skincare is more than a treatment—it's an experience. Founded with a passion for beauty and wellness, our mission is to provide every client with personalized care, rooted in professional techniques and a calming environment.
+                </p>
+                <p>
+                    We specialize in holistic facial therapies, rejuvenation treatments, and aesthetic consultations tailored to your unique skin. Step into a space where elegance meets expertise, and leave feeling refreshed, confident, and radiant.
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/gentle_skin_aesthetics/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@gentle_skin_aesthetics" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Gentle Skin Aesthetics. All rights reserved.
+    </footer>
+    <script src="script.js"></script>
+    <script>
+let lastScroll = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > lastScroll && currentScroll > 80) {
+    // Scrolling down
+    header.classList.add('header-hidden');
+  } else {
+    // Scrolling up
+    header.classList.remove('header-hidden');
+  }
+  lastScroll = currentScroll;
+});
+</script>
+</body>
+</html>

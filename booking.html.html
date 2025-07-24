@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking – Gentle Skin Aesthetics</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ <header class="booking-header">
+  <img src="https://i.ibb.co/gb4QbBhp/Untitled-design.png" alt="Gentle Skin Logo" class="logo" />
+  <span class="booking-title">Book an Appointment</span>
+</header>
+
+  <div class="glass">
+
+<form action="https://formspree.io/f/mpwlpgrv" method="POST">
+      <label for="service">Select Your Primary Microneedling Service</label>
+      <select id="service" name="primary_service" required>
+        <option value="">-- Please select a service --</option>
+        <option value="200">Consultation - R200</option>
+        <option value="850">Collagen Boosting [Face only] - R850</option>
+        <option value="1000">Collagen Boosting [Face, Neck & Decollete] - R1000</option>
+        <option value="1000">Brightening [Face only] - R1000</option>
+        <option value="1250">Brightening [Face, Neck & Decollete] - R1250</option>
+        <option value="950">Acne Scarring [Consultation Included] - R950</option>
+      </select>
+
+    <form action="https://formspree.io/f/mpwlpgrv" method="POST">
+      <label for="service">Select Your Primary Facial Service</label>
+      <select id="service" name="primary_service" required>
+        <option value="">-- Please select a service --</option>
+        <option value="200">Consultation - R200</option>
+        <option value="290">Tranquility Facial - R290</option>
+        <option value="380">Deep Purifying Clense - R380</option>
+        <option value="420">Radiant Rejuvenation Cleanse - R420</option>
+        <option value="420">Gentle Glow Renewal Peel - R420</option>
+        <option value="100">Eyelash Tint - R100</option>
+        <option value="450">Eyelash Lify & Tint - R450</option>
+        <option value="100">Brow Tint - R100</option>
+        <option value="120">Brow Tint & Shape - R120</option>
+        <option value="450">Brow Tint, Shape & Lamination - R450</option>
+      </select>
+
+      <label class="optional-label" for="additionalServicesHeader">Optional Add-on Services</label>
+      <div class="additional-services-group">
+        <label><input type="checkbox" name="additional_service[]" value="300"> Facial Add-on (Specialized Mask) - R300</label>
+        <label><input type="checkbox" name="additional_service[]" value="500"> Dermo Needling (Localized Area) - R500</label>
+        <label><input type="checkbox" name="additional_service[]" value="250"> Targeted Chemical Exfoliation - R550</label>
+        <label><input type="checkbox" name="additional_service[]" value="150"> LED Light Therapy - R150</label>
+        <label><input type="checkbox" name="additional_service[]" value="100"> High-Frequency Treatment - R100</label>
+      </div>
+
+      <p style="font-weight: bold; margin-top: 1.5rem; color: var(--text);">
+        Total Estimated Price: <span id="totalPrice">R0.00</span>
+      </p>
+      <input type="hidden" name="calculated_price" id="calculatedPrice">
+
+
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" />
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" />
+
+      <label for="message">Additional Notes</label>
+      <textarea id="message" name="message" rows="4" placeholder="Any special requests or questions?"></textarea>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+
+  <a href="index.html" class="button-link">Back to Home</a>
+
+  <div class="disclaimer">
+    Your selected services are pending confirmation. A confirmation email will detail your scheduled appointment.
+  </div>
+</body>
+</html>

@@ -1,0 +1,512 @@
+/* style.css */
+
+/* style.css (add these rules) */
+
+/* ... (your existing CSS code above this) ... */
+
+/* === Button-like Link Styles === */
+a.button-link {
+  display: block; /* Make it a block element to control width and centering */
+  width: fit-content; /* Make it only as wide as its content */
+  margin: 20px auto 40px auto; /* Add vertical margin and center it horizontally. Increased bottom margin to separate from disclaimer */
+
+  /* Adopt button styles from the 'button' element */
+  background-color: var(--accent-dark);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  color: var(--background-light); /* Button text color */
+  text-decoration: none; /* Remove default underline from link */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+a.button-link:hover {
+  background-color: var(--accent-light); /* Lighter accent on hover */
+  transform: scale(1.02);
+}
+
+/* ... (your existing CSS code below this) ... */
+
+/* === Color Variables (NEW "Sanitary" Palette) === */
+:root {
+  --background-light: #F8F8F8;   /* A very clean, near-white background */
+  --background-medium: #E9EEF4;  /* A very light, cool blue-grey for gradients/accents */
+  --glass-effect-bg: rgba(255, 255, 255, 0.7); /* Brighter, slightly more opaque white for glass */
+  --accent-light: #B6DDE4;       /* Muted light teal/cyan for headings and lighter accents */
+  --accent-dark: #8FBACD;        /* Slightly deeper, muted blue for buttons, hover states */
+  --text: #36454F;               /* Dark Charcoal Grey for main text (remains) */
+  --border-color: rgba(182, 221, 228, 0.5); /* Lighter, subtle border color */
+}
+
+/* === Universal Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Body Styles === */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  /* Using new background colors for the gradient */
+  background: linear-gradient(to bottom right, var(--background-medium), var(--background-light));
+  color: var(--text); /* Applies charcoal grey to default body text */
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevents horizontal scroll from animations */
+  display: flex; /* For sticky footer */
+  flex-direction: column; /* For sticky footer */
+}
+
+/* === Header Styles === */
+header {
+  background: rgba(255, 255, 255, 0.7); /* Brighter header background */
+  backdrop-filter: blur(10px);
+  /* Using new border color */
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--accent-light); /* Using new accent color */
+  margin-bottom: 0;
+}
+
+nav a {
+  color: var(--accent-light); /* Using new accent color */
+  margin-left: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent-dark); /* Using new accent color for hover */
+}
+
+/* === Glass Effect Base Styles === */
+.glass-box,
+.glass-form,
+.glass {
+  background: var(--glass-effect-bg); /* Brighter, more "sanitary" white glass */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  /* Using new border color */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Border slightly brighter for the new glass bg */
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* === Section Specific Layouts & Glass Overrides === */
+.section-content {
+  display: grid;
+  place-items: center;
+  min-height: 90vh;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+#home .glass-box,
+#about .glass-box {
+  max-width: 900px; /* Increase width for more text room */
+  width: 100%;
+  padding: 3rem 2.5rem; /* Optional: more side padding */
+  background: rgba(255, 255, 255, 0.38); /* Semi-transparent white */
+  border: none;
+  box-shadow: none;
+  transition: background 0.3s;
+}
+
+.contact-section .glass-form {
+  max-width: 600px;
+  width: 100%;
+  padding: 2.5rem 2rem;
+}
+
+body > .glass {
+    margin: auto;
+    max-width: 500px;
+    width: 90%;
+    padding: 2rem;
+}
+
+.thanks-page-glass {
+    animation: popIn 0.9s ease;
+    padding: 3rem;
+}
+
+
+/* === Form Styling === */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  /* Using new accent color for borders */
+  border: 1px solid var(--accent-light);
+  /* Input background is now more solid white for "sanitary" look */
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  transition: all 0.2s ease-in-out;
+  resize: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-dark); /* Stronger accent on focus */
+  box-shadow: 0 0 0 2px var(--accent-dark);
+  background-color: #FFFFFF; /* Pure white on focus */
+}
+
+button {
+  /* Using new accent color for buttons */
+  background-color: var(--accent-dark);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  color: var(--background-light); /* Button text is light for contrast */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background-color: var(--accent-light); /* Lighter accent on button hover */
+  transform: scale(1.02);
+}
+
+/* === Typography === */
+h1, h2, h3 {
+  color: var(--accent-light); /* Headings use lighter accent color */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--accent-light); /* Header h1 also uses lighter accent */
+}
+
+p {
+  color: var(--text); /* All paragraphs charcoal grey */
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.thanks-page-glass p {
+    margin-bottom: 2rem;
+}
+
+label {
+    font-size: 0.95rem;
+    color: var(--text); /* Labels charcoal grey */
+    margin-top: 1rem;
+}
+.glass form label {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+}
+.contact-section .glass-form label {
+    margin-top: 1rem;
+}
+
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--accent-light); /* Footer text uses lighter accent color */
+  background-color: rgba(255, 255, 255, 0.7); /* Brighter footer background */
+  backdrop-filter: blur(5px);
+  border-top: 1px solid var(--border-color); /* Using new border color */
+  margin-top: auto;
+}
+
+/* === Animations === */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  nav a {
+    margin: 0 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .glass-box,
+  .glass-form,
+  .glass {
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+
+  .section-content .glass-box,
+  .contact-section .glass-form {
+      padding: 2rem 1.5rem;
+  }
+
+  body > .glass {
+      padding: 1.5rem;
+  }
+  .thanks-page-glass {
+      padding: 2rem;
+  }
+
+
+  h1, h2, h3 {
+    font-size: 1.7rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
+
+/* style.css (add these rules) */
+
+/* ... (your existing CSS code above this) ... */
+
+
+/* === Booking Page Header Specific Styles === */
+.booking-header {
+  position: fixed; /* Make it fixed to the top of the viewport */
+  top: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 998; /* Just below the main navigation header if it exists, but above content */
+  /* Moved styles from inline in booking.html */
+  padding: 2rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-light); /* Using your sanitary accent color */
+  background: rgba(255, 255, 255, 0.7); /* Consistent with other header/glass backgrounds */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color); /* Consistent border */
+  transition: transform 0.3s ease-out; /* Smooth slide animation */
+}
+
+/* Class to hide the header */
+.booking-header.header-hidden {
+  transform: translateY(-100%); /* Slides the header completely up and out of view */
+}
+
+/* Adjust margin for the main content on booking page to not hide under the header */
+body > .glass {
+    margin: 100px auto 0; /* Add top margin equal to or slightly more than header height */
+    max-width: 500px; /* Keep original max-width */
+    width: 90%; /* Keep original width */
+    padding: 2rem; /* Keep original padding */
+}
+
+/* ... (your existing CSS code below this) ... */
+
+.disclaimer {
+  position: fixed; /* Stays in place when scrolling */
+  bottom: 15px;    /* Distance from the bottom */
+  right: 15px;     /* Distance from the right */
+  color: var(--text); /* Uses your dark charcoal grey for consistent text color */
+  font-size: 0.75rem; /* Smaller text for a disclaimer */
+  background-color: var(--background-light); /* Uses your very clean, near-white background color */
+  padding: 10px 15px; /* Slightly adjusted padding for the box */
+  border-radius: 8px; /* Softly rounded corners */
+  border: 1px solid var(--border-color); /* Uses your subtle border color */
+  max-width: 280px; /* Limits the width for readability */
+  text-align: right; /* Aligns text to the right within the box */
+  z-index: 100; /* Ensures it's above other content */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* A very subtle shadow for definition */
+}
+
+/* style.css (add these rules) */
+
+/* ... (your existing CSS code above this) ... */
+
+/* === Optional Add-on Services Group Styling === */
+.optional-label {
+    margin-top: 1.5rem; /* Space above the optional section header */
+    margin-bottom: 0.5rem; /* Space below the optional section header */
+    font-size: 0.95rem; /* Consistent label font size */
+    color: var(--text);
+}
+
+.additional-services-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem; /* Smaller gap between checkboxes */
+    background-color: rgba(255, 255, 255, 0.6); /* Slightly darker glass for this section */
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.additional-services-group label {
+    display: flex; /* Aligns checkbox and text */
+    align-items: center;
+    font-size: 1rem; /* Slightly larger text for options */
+    color: var(--text);
+    margin-top: 0; /* Override default label margin */
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.additional-services-group input[type="checkbox"] {
+    margin-right: 10px; /* Space between checkbox and text */
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
+    width: 18px; /* Standardize checkbox size */
+    height: 18px; /* Standardize checkbox size */
+    accent-color: var(--accent-dark); /* Color the checkbox itself */
+}
+
+/* ... (your existing CSS code below this) ... */
+
+
+/* Social Icons Styling */
+.social-icons {
+    margin-top: 25px; /* Adds space above the icons */
+    text-align: center; /* Centers the icons */
+}
+
+.social-icons a {
+    color: #555; /* Default color for the icons */
+    font-size: 35px; /* Size of the icons */
+    margin: 0 15px; /* Spacing between the icons */
+    transition: color 0.3s ease-in-out; /* Smooth transition for hover effect */
+    display: inline-block; /* Ensures proper spacing and alignment */
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px); /* Slightly lift the icon on hover */
+}
+
+/* Specific hover colors for brand recognition */
+.social-icons a .fa-instagram:hover {
+    color: #E4405F; /* Instagram's brand color */
+}
+
+.social-icons a .fa-tiktok:hover {
+    color: #EE1D52; /* TikTok's brand color */
+}
+
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.0rem 1.5rem; /* Taller than booking-header */
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(40px);
+  box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header .logo {
+  height: 90px;
+  margin-right: 1rem;
+}
+
+
+/* === Main Header Slide-Up Effect === */
+header.header-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+/* Ensure header has a transition for smooth sliding */
+header {
+  transition: transform 0.3s ease-out, background-color 0.3s;
+}
+
+
+.booking-header {
+  display: flex;
+  justify-content: space-between; /* Logo left, title right */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0.8rem 2rem; /* Slimmer header */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 998;
+}
+
+.booking-header .logo {
+  height: 90px;
+  margin: 0;
+}
+
+.booking-header .booking-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-light);
+}
