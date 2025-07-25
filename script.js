@@ -83,41 +83,52 @@ if (bookingHeader) { // Only run this logic if bookingHeader exists on the page
 // script.js (add this new section at the very end of the file)
 
 // === Price Calculation Logic for Booking Page ===
-const primaryServiceSelect = document.getElementById('service');
+const microneedlingServiceSelect = document.getElementById('microneedling-service');
+const facialServiceSelect = document.getElementById('facial-service');
 const additionalServiceCheckboxes = document.querySelectorAll('.additional-services-group input[type="checkbox"]');
 const totalPriceDisplay = document.getElementById('totalPrice');
 const calculatedPriceInput = document.getElementById('calculatedPrice');
 
+function extractPrice(value) {
+  const match = value.match(/R\s?(\d+)/i);
+  return match ? parseFloat(match[1]) : 0;
+}
+
 function calculateTotalPrice() {
   let total = 0;
 
-  // Get price from primary service
-  if (primaryServiceSelect && primaryServiceSelect.value) {
-    total += parseFloat(primaryServiceSelect.value);
+  // Get price from microneedling service
+  if (microneedlingServiceSelect && microneedlingServiceSelect.value) {
+    total += extractPrice(microneedlingServiceSelect.value);
+  }
+
+  // Get price from facial service
+  if (facialServiceSelect && facialServiceSelect.value) {
+    total += extractPrice(facialServiceSelect.value);
   }
 
   // Add prices from selected additional services
   additionalServiceCheckboxes.forEach(checkbox => {
     if (checkbox.checked) {
-      total += parseFloat(checkbox.value);
+      total += extractPrice(checkbox.value);
     }
   });
 
-  // Update display and hidden input
-  totalPriceDisplay.textContent = `R${total.toFixed(2)}`; // Format to 2 decimal places
-  calculatedPriceInput.value = total.toFixed(2); // Store formatted total for submission
+  totalPriceDisplay.textContent = `R${total.toFixed(2)}`;
+  calculatedPriceInput.value = total.toFixed(2);
 }
 
 // Attach event listeners
-if (primaryServiceSelect) {
-  primaryServiceSelect.addEventListener('change', calculateTotalPrice);
+if (microneedlingServiceSelect) {
+  microneedlingServiceSelect.addEventListener('change', calculateTotalPrice);
 }
-
+if (facialServiceSelect) {
+  facialServiceSelect.addEventListener('change', calculateTotalPrice);
+}
 if (additionalServiceCheckboxes.length > 0) {
   additionalServiceCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', calculateTotalPrice);
   });
 }
 
-// Calculate initial total when the page loads
 calculateTotalPrice();
