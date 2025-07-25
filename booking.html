@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="GentleSkin" />
+<link rel="manifest" href="/site.webmanifest" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Booking – Gentle Skin Aesthetics</title>
@@ -11,6 +19,17 @@
   <img src="https://i.ibb.co/gb4QbBhp/Untitled-design.png" alt="Gentle Skin Logo" class="logo" />
   <span class="booking-title">Book an Appointment</span>
 </header>
+
+<script>
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('header, .booking-header');
+  if (window.scrollY > 0) {
+    header.classList.add('hide-on-scroll');
+  } else {
+    header.classList.remove('hide-on-scroll');
+  }
+});
+</script>
 
   <div class="glass">
 
@@ -79,8 +98,9 @@
 
   <a href="index.html" class="button-link">Back to Home</a>
 
-  <div class="disclaimer">
+  <div class="total-price">
+  Total Estimated Price: <span id="price">R...</span>
+  <small class="confirmation-note">
     Your selected services are pending confirmation. A confirmation email will detail your scheduled appointment.
-  </div>
-</body>
-</html>
+  </small>
+</div>
